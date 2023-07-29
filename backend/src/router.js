@@ -1,10 +1,9 @@
 const express = require('express')
 const router = express.Router()
-const User = require('../db/models/usermodel')
 const Post = require('../db/models/model')
-const bcrypt = require('bcrypt')
 const upload = require('../config/multer')
 const middlewareLogin = require('./middlewareLogin')
+const fs = require('fs')
 
 router.get('/', middlewareLogin, async (request, response) => {
   try {
@@ -19,8 +18,10 @@ router.get('/', middlewareLogin, async (request, response) => {
 router.post('/', upload.single('file'), middlewareLogin, async (request, response) => {
   try {
     const {title, content} = request.body
-    const file = request.file
-    const post = await new Post({title, content, src: file.path})
+    const filePath = fs.readFileSync(request.file.path)
+    const data = Buffer.from(filePath).toString('base64')
+    const post = await new Post({title, content, src: data})
+    
     await post.save()
     response.status(201).json('{}')
   } catch (err) {
