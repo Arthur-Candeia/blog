@@ -5,7 +5,7 @@ const upload = require('../config/multer')
 const middlewareLogin = require('./middlewareLogin')
 const fs = require('fs')
 
-router.get('/', middlewareLogin, async (request, response) => {
+router.post('/', middlewareLogin, async (request, response) => {
   try {
     const posts = await Post.find()
     response.status(200).json(posts)
@@ -15,7 +15,7 @@ router.get('/', middlewareLogin, async (request, response) => {
   }
 })
 
-router.post('/', upload.single('file'), middlewareLogin, async (request, response) => {
+router.post('/newpost', upload.single('file'), middlewareLogin, async (request, response) => {
   try {
     const {title, content} = request.body
     const filePath = fs.readFileSync(request.file.path)
