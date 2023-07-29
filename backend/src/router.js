@@ -7,8 +7,13 @@ const upload = require('../config/multer')
 const middlewareLogin = require('./middlewareLogin')
 
 router.get('/', middlewareLogin, async (request, response) => {
-  const posts = await Post.find()
-  response.status(200).json(posts)
+  try {
+    const posts = await Post.find()
+    response.status(200).json(posts)
+  }
+  catch {
+    response.status(500).json({msg: "Erro interno do servidor"})
+  }
 })
 
 router.post('/', upload.single('file'), middlewareLogin, async (request, response) => {
