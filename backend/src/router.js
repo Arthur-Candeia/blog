@@ -20,7 +20,8 @@ router.post('/newpost', upload.single('file'), middlewareLogin, async (request, 
     const {title, content} = request.body
     const filePath = fs.readFileSync(request.file.path)
     const data = Buffer.from(filePath).toString('base64')
-    const post = await new Post({title, content, src: data})
+    const date = new Date().toLocaleString()
+    const post = await new Post({title, content, src: data, date})
     
     await post.save()
     response.status(201).json('{}')
