@@ -3,8 +3,10 @@ const express = require('express')
 const app = express()
 const router = require('./router')
 const cors = require('cors')
+const cookieParser = require('cookie-parser')
 require('../db/db.js')
 
+app.use(cookieParser())
 app.use(express.json())
 
 app.use((request, response, next) => {

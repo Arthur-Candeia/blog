@@ -21,14 +21,14 @@ router.post('/newpost', upload.single('file'), middlewareLogin, async (request, 
     const filePath = fs.readFileSync(request.file.path)
     const data = Buffer.from(filePath).toString('base64')
 
-    const configDate = {year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric'}
+    const configDate = {year: 'numeric', month: 'long', day: 'numeric'}
     const date = new Date().toLocaleString('pt-br', configDate)
     const post = await new Post({title, content, src: data, date})
     
     await post.save()
     response.status(201).json('{}')
   } catch (err) {
-    response.status(401).json({msg: err})
+    response.status(401).json({msg: err?.message})
   }
 })
 
