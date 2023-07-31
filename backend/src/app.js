@@ -6,7 +6,6 @@ const cors = require('cors')
 const cookieParser = require('cookie-parser')
 require('../db/db.js')
 
-app.use(cookieParser())
 app.use(express.json())
 
 app.use((request, response, next) => {
@@ -19,6 +18,8 @@ app.use(cors({
   origin: '*',
   methods: ['GET','POST','DELETE','UPDATE','PUT','PATCH']
 }));
+
+app.use(cookieParser())
 
 app.use('/', router)
 
