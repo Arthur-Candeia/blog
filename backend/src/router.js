@@ -1,9 +1,11 @@
 const express = require('express')
 const router = express.Router()
 const Post = require('../db/models/model')
+const Link = require('../db/models/linksModel')
 const upload = require('../config/multer')
 const middlewareLogin = require('./middlewareLogin')
 const fs = require('fs')
+require('dotenv').config()
 
 router.post('/', middlewareLogin, async (request, response) => {
   try {
@@ -26,6 +28,20 @@ router.post('/newpost', upload.single('file'), middlewareLogin, async (request, 
     const post = await new Post({title, content, src: data, date})
     
     await post.save()
+    response.status(201).json('{}')
+  } catch (err) {
+    response.status(401).json({msg: err?.message})
+  }
+})
+
+router.post('/links', middlewareLogin, async (request, response) => {
+  try {
+    const links = request.body.links
+    const link = await Link.findById(`${process.env.IDLINK}`)
+    links.split(',').forEach(async (element) => {
+      await link.links.unshift(element)
+    })
+    await link.save()
     response.status(201).json('{}')
   } catch (err) {
     response.status(401).json({msg: err?.message})

@@ -14,12 +14,12 @@ app.use((request, response, next) => {
   next();
 });
 
+app.use(cookieParser())
+
 app.use(cors({
   origin: '*',
   methods: ['GET','POST','DELETE','UPDATE','PUT','PATCH']
 }));
-
-app.use(cookieParser())
 
 app.use('/', router)
 
