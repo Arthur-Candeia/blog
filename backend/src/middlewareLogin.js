@@ -16,6 +16,7 @@ async function middlewareLogin(request, response, next) {
     if (permission) next()
     else {return response.status(401).json({msg: 'Não autorizado'})}
   } catch (err) {
+    response.cookie('ban', 'wait', {expires: new Date(dayjs().add(3, 'hours')), maxAge: 10800000, httpOnly: false})
     return response.status(401).json({msg: 'Não autorizado'})
   }
 }
