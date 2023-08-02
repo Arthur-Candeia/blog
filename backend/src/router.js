@@ -10,7 +10,8 @@ require('dotenv').config()
 router.post('/', middlewareLogin, async (request, response) => {
   try {
     const posts = await Post.find()
-    response.status(200).json(posts)
+    const links = await Link.find()
+    response.status(200).json({posts, links})
   }
   catch {
     response.status(500).json({msg: "Erro interno do servidor"})
@@ -38,7 +39,7 @@ router.post('/links', middlewareLogin, async (request, response) => {
   try {
     const links = request.body.links
     const link = await Link.findById(`${process.env.IDLINK}`)
-    links.split(',').forEach(async (element) => {
+    links.split('|').forEach(async (element) => {
       await link.links.unshift(element)
     })
     await link.save()
@@ -47,5 +48,6 @@ router.post('/links', middlewareLogin, async (request, response) => {
     response.status(401).json({msg: err?.message})
   }
 })
+
 
 module.exports = router

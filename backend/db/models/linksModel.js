@@ -3,7 +3,7 @@ mongoose.Promise = global.Promise
 
 const linksModelSchema = mongoose.Schema({
   links: [{
-    type: String,
+    type: Object,
     require: true
   }]
 })
