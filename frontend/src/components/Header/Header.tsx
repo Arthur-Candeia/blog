@@ -9,7 +9,7 @@ import DataTypes from '../../interface/DataTypes';
 export default function Header() {
 
   const [isLoading, setIsLoading] = useState(true)
-  const [data, setData] = useState<DataTypes>({posts: [], links: []})
+  const [data, setData] = useState<DataTypes>({posts: [{title: '', content: '', src: '', date: '', likes: 2}], links: []})
 
   useEffect(()=> {
     setIsLoading(true)
