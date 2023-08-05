@@ -1,13 +1,13 @@
-import Shield from "./components/Shield/Shield"
+import {RouterProvider} from 'react-router-dom';
+import router from './router';
+
 import './styles/style.scss';
 import './styles/media-queries.scss';
 
 function App() {
 
   return (
-    <>
-      <Shield />
-    </>
+    <RouterProvider router={router} />
   )
 }
 
