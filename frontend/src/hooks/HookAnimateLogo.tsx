@@ -14,13 +14,13 @@ export default function HookAnimateLogo() {
 
     allLettersLogo?.forEach((element) => {
       setTimeout(() => {
-        element.style.animation = 'moveLetters 1s forwards ease-out'
+        element.style.animation = 'moveLetters 1s 1 ease-out'
       }, time)
 
       element.style.animation = ''
       time += 300
     })
-    setTimeout(() => setIsLogoAnimation(false), time)
+    setTimeout(() => setIsLogoAnimation(false), time + 1000)
   }
 
   return animateLogo

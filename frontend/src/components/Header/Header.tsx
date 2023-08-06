@@ -27,12 +27,12 @@ export default function Header() {
       {isLoading ? (<Shield />) : (
         <DataContext.Provider value={data}>
           <header className='fixedHeader'>
-            <span onMouseMove={() => animateLogo()} id='logo'>
+            <Link onMouseMove={animateLogo} onClick={animateLogo} id='logo' to="/">
               {'TUDEV'.split('').map((element, index) => <span key={index}>{element}</span>)}
-            </span>
+            </Link>
             <nav>
               <Link to='/posts'>Posts</Link>
-              <Link to='/repository'>All Videos</Link>
+              <a href='https://github.com/Arthur-Candeia/blog' target='_blank' rel='external'>Repository</a>
             </nav>
           </header>
           <Outlet></Outlet>
