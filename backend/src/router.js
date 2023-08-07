@@ -37,11 +37,8 @@ router.post('/newpost', upload.single('file'), middlewareLogin, async (request, 
 
 router.post('/links', middlewareLogin, async (request, response) => {
   try {
-    const links = request.body.links
-    const link = await Link.findById(`${process.env.IDLINK}`)
-    links.split('|').forEach(async (element) => {
-      await link.links.unshift(element)
-    })
+    const {title, url} = request.body
+    const link = await new Link({title, url})
     await link.save()
     response.status(201).json('{}')
   } catch (err) {

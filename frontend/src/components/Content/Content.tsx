@@ -3,8 +3,8 @@ import DataContext from "../../contexts/Data";
 import './Content.scss';
 
 export default function Content() {
-  const {posts} = useContext(DataContext)
-  
+  const {posts, links} = useContext(DataContext)
+  console.log(links)
   return(
     <>
       {posts.map((element, index) => (
