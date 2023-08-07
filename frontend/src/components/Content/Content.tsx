@@ -15,6 +15,12 @@ export default function Content() {
         </div>
       )
       )}
+      {links.map((element, index) => (
+        <div key={index}>
+          <p>{element.title}</p>
+          <p>{element.url}</p>
+        </div>
+      ))}
     </>
   )
 }
