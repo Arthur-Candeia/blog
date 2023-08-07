@@ -10,7 +10,7 @@ import './Header.scss';
 export default function Header() {
 
   const [isLoading, setIsLoading] = useState(true)
-  const [data, setData] = useState<DataTypes>({posts: [{title: '', content: '', src: '', date: '', likes: 2}], links: []})
+  const [data, setData] = useState<DataTypes>({posts: [{title: '', content: '', src: '', date: '', likes: 2}], links: [{title: '', url: ''}]})
   const animateLogo = HookAnimateLogo()
 
   useEffect(()=> {
