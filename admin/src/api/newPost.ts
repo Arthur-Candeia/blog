@@ -21,12 +21,12 @@ export async function handleSubmit({ev, user, password, title, content, linkTitl
   formData.append('file', document.forms[0]['file'].files[0])
 
   const result = await fetch('https://blog-backend-arthur-candeia.vercel.app/newpost', {method: 'POST',
-body: formData})
+body: formData, credentials: 'include'})
   const data = await result.json()
 
   const headers = new Headers({'Content-Type': 'application/json'})
   const body = JSON.stringify({user, password, title: linkTitle, url: linkUrl})
-  const result2 = await fetch('https://blog-backend-arthur-candeia.vercel.app/links', {method: 'POST', headers, body})
+  const result2 = await fetch('https://blog-backend-arthur-candeia.vercel.app/links', {method: 'POST', headers, body, credentials: 'include'})
   const data2 = await result2.json()
 
   console.log(data)
