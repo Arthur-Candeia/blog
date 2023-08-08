@@ -9,7 +9,9 @@ require('../db/db.js')
 app.use(express.json())
 
 app.use((request, response, next) => {
+  const allowedOrigins = 
   response.header("Access-Control-Allow-Origin", 'https://blog-arthur-candeia.vercel.app');
+  response.header("Access-Control-Allow-Origin", "https://blog-admin-arthur-candeia.vercel.app", false)
   response.header("Access-Control-Allow-Methods", 'GET,PUT,POST,DELETE');
   next();
 });
@@ -17,7 +19,7 @@ app.use((request, response, next) => {
 app.use(cookieParser())
 
 app.use(cors({
-  origin: 'https://blog-arthur-candeia.vercel.app',
+  origin: 'https://blog-arthur-candeia.vercel.app/',
   credentials: true,
   methods: ['GET','POST','DELETE','UPDATE','PUT','PATCH']
 }));
