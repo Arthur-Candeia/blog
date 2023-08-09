@@ -1,5 +1,5 @@
 export async function loaderAllInfos() {
-  if (localStorage.posts) {
+  if (localStorage.posts && document.cookie.includes('ban')) {
     return JSON.parse(localStorage.posts)
   }
   else {
@@ -10,10 +10,10 @@ export async function loaderAllInfos() {
       user: `${import.meta.env.VITE_ENTRADA}`,
       password: `${import.meta.env.VITE_INICIAR}`
     })
-
+    
     const result = await fetch('https://blog-backend-arthur-candeia.vercel.app/', {method: 'POST', headers: header, body, credentials: 'include'})
     const data = await result.json()
-    //localStorage.posts = JSON.stringify(data)
+    localStorage.posts = JSON.stringify(data)
     return data;
   }
 }

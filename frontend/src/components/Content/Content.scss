@@ -1,9 +1,36 @@
-.post {
-  margin-bottom: 20px;
+#blogMain {
+  display: grid;
+  grid-template-rows: 3fr 3fr 3fr 1fr;
+  grid-template-areas: 
+  "post1 post1 post1 post1 links"
+  "post2 post2 post2 post2 links"
+  "post3 post3 post3 post3 infos"
+  "allPosts allPosts allPosts allPosts infos";
+  gap: 10px;
+  width: 100%;
+  height: 100%;
+  padding: 0px 10px 10px;
+}
+
+.infos {grid-area: infos;}
+.postNum1{grid-area: post1;}
+.postNum2{grid-area: post2;}
+.postNum3{grid-area: post3;}
+.links {grid-area: links; background-color: green;}
+
+.allPosts{grid-area: allPosts; color: green;}
+
+.blogPost {
+  background-color: blue;
+  overflow: hidden;
+  max-height: 27vh;
 
   img {
-    width: 200px;
+    width: 100%;
+    height: 90px;
+    overflow: hidden;
     aspect-ratio: 16/9;
     object-fit: cover;
   }
 }
+
