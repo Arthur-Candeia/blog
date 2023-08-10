@@ -1,5 +1,5 @@
 @media screen and (max-width: 800px) {
-  #shield, #blogMain {
+  #shield {
     grid-template-rows: 1fr 3fr 3fr 3fr 3fr;
     grid-template-areas: 
     "header header header header header"
@@ -16,5 +16,16 @@
     #logo {
       font-size: 1.5em;
     }
+  }
+
+  #blogMain {
+    grid-template-rows: 2fr 2fr 2fr 1fr 2fr;
+    grid-template-areas: 
+    "post1 post1 post1 post1 post1"
+    "post2 post2 post2 post2 post2"
+    "post3 post3 post3 post3 post3"
+    "allPosts allPosts allPosts allPosts allPosts"
+    "links links links infos infos";
+    padding: 0px 5px 10px;
   }
 }
