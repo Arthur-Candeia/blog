@@ -18,8 +18,64 @@
 .postNum1{grid-area: post1;}
 .postNum2{grid-area: post2;}
 .postNum3{grid-area: post3;}
-.links {grid-area: links; background-color: green;}
-.allPosts{grid-area: allPosts; color: green;}
+
+.linksBox {
+  grid-area: links;
+  padding: 10px 15px;
+  background-color: $lightBlue;
+  border-radius: 5px;
+
+  h2 {
+    color: $darkBlue;
+    margin-bottom: 10px;
+  }
+
+  .links {
+    margin-bottom: 20px;
+
+    p {
+      font-weight: 500;
+      font-size: 1.1rem;
+      color: $darkBlue;
+    }
+  
+    a {
+      color: white;
+    }
+  }
+
+  .moreVideos {
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+    padding: 8px 13px;
+    font-weight: 500;
+    font-size: 1.01rem;
+    background-color: white;
+    color: $darkBlue;
+    border: none;
+    border-radius: 5px;
+  }
+}
+
+.allPosts{
+  grid-area: allPosts;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  text-decoration: none;
+  font-weight: bolder;
+  font-size: 1.2rem;
+  color: $darkBlue;
+  border-radius: 5px;
+
+  &:hover {
+    border: 2px solid black;
+    border-radius: 5px;
+    animation: allPosts 1.5s forwards ease-in;
+  }
+}
 
 .blogPost {
   position: relative;
@@ -48,6 +104,18 @@
     object-fit: cover;
   }
 
+  h1, p {
+    padding: 1px 10px;
+  }
+
+  h1 {
+    color: white;
+  }
+
+  p {
+    color: $darkBlue;
+  }
+
   a {
     display: none;
     position: absolute;
@@ -63,3 +131,13 @@
   }
 }
 
+@keyframes allPosts {
+  0% {
+    text-align: center;
+    width: 15%;
+  }
+  100% {
+    text-align: center;
+    width: 100%;
+  }
+}

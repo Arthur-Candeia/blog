@@ -5,8 +5,8 @@ import './Content.scss';
 
 export default function Content() {
   const {posts, links} = useContext(DataContext)
-  const viewPosts = posts.slice(0, 3)
-  const viewLinks = links.slice(0, 3)
+  const viewPosts = posts.slice(-3)
+  const viewLinks = links.slice(-3)
 
   return(
     <section id='blogMain'>
@@ -19,14 +19,18 @@ export default function Content() {
         </div>
       )
       )}
-      <div className='links'>
+
+      <div className='linksBox'>
+        <h2>Vídeos Recomendados</h2>
       {viewLinks.map((element, index) => (
-        <div key={index}>
+        <div key={index} className='links'>
           <p>{element.title}</p>
-          <p>{element.url} Lorem ipsum, dolor sit amet consectetur adipisicing elit. Asperiores voluptatem, et harum autem incidunt off</p>
+          <a href={element.url} target='_blank' rel='external'>{element.url}</a>
         </div>
       ))}
+        <button className='moreVideos'>More Videos</button>
       </div>
+
       <div className='blogInfos'>
         INFOS
       </div>

@@ -21,7 +21,7 @@ export async function handleSubmit({ev, user, password, title, content, linkTitl
   formData.append('file', document.forms[0]['file'].files[0])
 
   const result = await fetch('https://blog-backend-arthur-candeia.vercel.app/newpost', {method: 'POST',
-body: formData, credentials: 'include'})
+body: formData})
   const data = await result.json()
 
   const headers = new Headers({'Content-Type': 'application/json'})

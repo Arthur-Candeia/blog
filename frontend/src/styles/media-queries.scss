@@ -19,7 +19,6 @@
   }
 
   #blogMain {
-    grid-template-rows: 2fr 2fr 2fr 1fr 2fr;
     grid-template-areas: 
     "post1 post1 post1 post1 post1"
     "post2 post2 post2 post2 post2"
@@ -27,5 +26,16 @@
     "allPosts allPosts allPosts allPosts allPosts"
     "links links links infos infos";
     padding: 0px 5px 10px;
+  }
+
+  @keyframes allPosts {
+    0% {
+      text-align: center;
+      width: 50vw;
+    }
+    100% {
+      text-align: center;
+      width: 100%;
+    }
   }
 }
