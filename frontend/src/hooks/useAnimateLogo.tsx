@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-export default function HookAnimateLogo() {
+export default function useAnimateLogo() {
   const [isLogoAnimation, setIsLogoAnimation] = useState(false)
 
 

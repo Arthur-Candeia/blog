@@ -1,12 +1,13 @@
 import { useContext } from 'react';
-import DataContext from "../../contexts/Data";
 import { Link } from 'react-router-dom';
+import DataContext from "../../contexts/Data";
+import useViewLinks from '../../hooks/useViewLinks';
 import './Content.scss';
 
 export default function Content() {
   const {posts, links} = useContext(DataContext)
   const viewPosts = posts.slice(-3)
-  const viewLinks = links.slice(-3)
+  const {viewLinks} = useViewLinks(links)
 
   return(
     <section id='blogMain'>
@@ -24,8 +25,7 @@ export default function Content() {
         <h2>Vídeos Recomendados</h2>
       {viewLinks.map((element, index) => (
         <div key={index} className='links'>
-          <p>{element.title}</p>
-          <a href={element.url} target='_blank' rel='external'>{element.url}</a>
+          <a href={element.url} target='_blank' rel='external'>{element.title}</a>
         </div>
       ))}
         <button className='moreVideos'>More Videos</button>

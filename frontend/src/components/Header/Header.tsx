@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { Outlet, Link } from "react-router-dom";
 import { loaderAllInfos } from "../../loaders/loaders";
 import { loaderWithBan } from '../../loaders/ban';
-import HookAnimateLogo from '../../hooks/HookAnimateLogo';
+import useAnimateLogo from '../../hooks/useAnimateLogo';
 import DataContext from '../../contexts/Data';
 import Shield from "../Shield/Shield";
 import DataTypes from '../../interface/DataTypes';
@@ -12,7 +12,7 @@ export default function Header() {
 
   const [isLoading, setIsLoading] = useState(true)
   const [data, setData] = useState<DataTypes>({posts: [{title: '', content: '', src: '', date: '', likes: 2}], links: [{title: '', url: ''}]})
-  const animateLogo = HookAnimateLogo()
+  const animateLogo = useAnimateLogo()
 
   useEffect(()=> {
     setIsLoading(true)
