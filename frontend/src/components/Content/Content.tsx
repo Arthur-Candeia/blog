@@ -31,8 +31,13 @@ export default function Content() {
         <button className='moreVideos'>More Videos</button>
       </div>
 
-      <div className='blogInfos'>
-        INFOS
+      <div className='infos'>
+        <img src="./author.jpg" alt="Author" />
+        <p className='infoName'>Arthur Candeia</p>
+        <div className="infoLinks">
+          <a href="https://www.linkedin.com/in/arthur-candeia-heher-56b836248/" target='_blank' rel='external'>LinkedIn</a>
+          <a href="https://portfolio-arthur-candeia.vercel.app/" target='_blank' rel='external'>Portfolio</a>
+        </div>
       </div>
       <Link to={'/posts'} className='allPosts'>View All Posts</Link>
     </section>
