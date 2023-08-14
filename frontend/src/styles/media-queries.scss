@@ -28,6 +28,16 @@
     padding: 0px 5px 10px;
   }
 
+  .linksBox {
+    h2 {
+      font-size: 1.1rem;
+    }
+  }
+
+  .blogPost {
+    height: 55vh;
+  }
+
   @keyframes allPosts {
     0% {
       text-align: center;

@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import DataContext from "../../contexts/Data";
 import useViewLinks from '../../hooks/useViewLinks';
@@ -7,7 +7,18 @@ import './Content.scss';
 export default function Content() {
   const {posts, links} = useContext(DataContext)
   const viewPosts = posts.slice(-3)
-  const {viewLinks} = useViewLinks(links)
+  const {viewLinks, setViewLinks} = useViewLinks(links)
+  const linksRef = useRef<HTMLDivElement>(null)
+  const buttonLinksRef = useRef<HTMLButtonElement>(null)
+
+  function moreVideos() {
+    setViewLinks(links.reverse())
+    if (linksRef.current && buttonLinksRef.current) {
+      linksRef.current.classList.add('linksBoxMoreVideos')
+      buttonLinksRef.current.style.display = 'none'
+    }
+  }
+
   return(
     <section id='blogMain'>
       {viewPosts.map((element, index) => (
@@ -20,14 +31,14 @@ export default function Content() {
       )
       )}
 
-      <div className='linksBox'>
+      <div className='linksBox' ref={linksRef}>
         <h2>Vídeos Recomendados</h2>
       {viewLinks.map((element, index) => (
         <div key={index} className='links'>
           <a href={element.url} target='_blank' rel='external'>{element.title}</a>
         </div>
       ))}
-        <button className='moreVideos'>More Videos</button>
+        <button className='moreVideos' ref={buttonLinksRef} onClick={() => moreVideos()}>More Videos</button>
       </div>
 
       <div className='infos'>
