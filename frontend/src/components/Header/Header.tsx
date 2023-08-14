@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Outlet, Link } from "react-router-dom";
 import { loaderAllInfos } from "../../loaders/loaders";
-import { loaderWithBan } from '../../loaders/ban';
 import useAnimateLogo from '../../hooks/useAnimateLogo';
 import DataContext from '../../contexts/Data';
 import Shield from "../Shield/Shield";
@@ -16,17 +15,11 @@ export default function Header() {
 
   useEffect(()=> {
     setIsLoading(true)
-    if (!document.cookie.includes('ban')) {
-      loaderAllInfos().then((result) => 
-      {
-        setData(result)
-        setIsLoading(false)
-      })
-    }
-    else {
-      setData(() => loaderWithBan())
+    loaderAllInfos().then((result) => 
+    {
+      setData(result)
       setIsLoading(false)
-    }
+    })
   }, [])
 
   return (

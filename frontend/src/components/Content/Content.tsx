@@ -8,7 +8,6 @@ export default function Content() {
   const {posts, links} = useContext(DataContext)
   const viewPosts = posts.slice(-3)
   const {viewLinks} = useViewLinks(links)
-
   return(
     <section id='blogMain'>
       {viewPosts.map((element, index) => (

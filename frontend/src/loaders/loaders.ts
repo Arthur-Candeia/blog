@@ -9,6 +9,11 @@ export async function loaderAllInfos() {
   
   const result = await fetch('https://blog-backend-arthur-candeia.vercel.app/', {method: 'POST', headers: header, body, credentials: 'include'})
   const data = await result.json()
+
+  if (Object.prototype.hasOwnProperty.call(data, 'msg')) {
+    return JSON.parse(localStorage.posts)
+  }
+
   localStorage.posts = JSON.stringify(data)
   return data;
 }
