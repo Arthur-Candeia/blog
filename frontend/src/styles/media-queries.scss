@@ -1,4 +1,9 @@
 @media screen and (max-width: 800px) {
+  main {
+    height: 100%;
+    padding-bottom: 10px;
+  }
+
   #shield {
     grid-template-rows: 1fr 3fr 3fr 3fr 3fr;
     grid-template-areas: 
@@ -29,14 +34,22 @@
   }
 
   .linksBox {
+    max-height: 300px;
+
     h2 {
       font-size: 1.1rem;
     }
   }
 
-  .blogPost {
-    height: 55vh;
+  .infos {
+    max-height: 300px;
   }
+
+  .blogPost {
+    height: 35vh;
+  }
+
+  
 
   @keyframes allPosts {
     0% {

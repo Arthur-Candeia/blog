@@ -160,7 +160,7 @@
   &:hover {
     transform: scale(1.01);
 
-    img, h1, p {
+    img, span, p {
       filter: blur(2px);
     }
 
@@ -178,15 +178,24 @@
     object-fit: cover;
   }
 
-  h1, p {
+  span {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
     padding: 1px 10px;
-  }
 
-  h1 {
-    color: white;
+    h1 {
+      color: white;
+    }
+
+    .date {
+      color: white;
+    }
   }
 
   p {
+    padding: 1px 10px;
     color: $darkBlue;
   }
 
@@ -197,6 +206,7 @@
     top: 50%;
     padding: 10px 15px;
     text-decoration: none;
+    text-align: center;
     font-size: 1.1rem;
     background-color: white;
     color: $darkBlue;
