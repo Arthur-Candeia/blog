@@ -4,7 +4,7 @@ import { loaderAllInfos } from "../../loaders/loaders";
 import useAnimateLogo from '../../hooks/useAnimateLogo';
 import DataContext from '../../contexts/Data';
 import Shield from "../Shield/Shield";
-import DataTypes from '../../interface/DataTypes';
+import DataTypes from '../../interfaces/DataTypes';
 import './Header.scss';
 
 export default function Header() {

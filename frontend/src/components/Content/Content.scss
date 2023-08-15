@@ -22,10 +22,10 @@
 .linksBox {
   grid-area: links;
   overflow-y: scroll;
+  word-wrap: break-word;
   padding: 10px 15px;
   background-color: $lightBlue;
   border-radius: 5px;
-
   h2 {
     margin-bottom: 10px;
     text-align: center;
@@ -152,7 +152,7 @@
 .blogPost {
   position: relative;
   overflow: hidden;
-  height: calc(26vh - 2px);
+  height: calc(26vh - 4px);
   max-height: 55vh;
   transition: all 0.3s ease-out;
   background-color: $blue;
