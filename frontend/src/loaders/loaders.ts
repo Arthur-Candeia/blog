@@ -22,11 +22,12 @@ export async function loaderAllInfos() {
 }
 
 function saveDataInLS(data: DataTypes) {
-  data.posts.forEach((element: PostTypes, index: number) => {
+  data.posts.reverse().forEach((element: PostTypes, index: number) => {
     localStorage[`title${index}`] = JSON.stringify(element.title)
     localStorage[`date${index}`] = JSON.stringify(element.date)
     localStorage[`content${index}`] = JSON.stringify(element.content)
     localStorage[`src${index}`] = JSON.stringify(element.src)
+    localStorage[`likes${index}`] = JSON.stringify(element.likes)
   })
 
   localStorage.qtdPosts = data.posts.length - 1
