@@ -10,7 +10,7 @@ export async function loaderAllInfos() {
     password: `${import.meta.env.VITE_INICIAR}`
   })
   
-  const result = await fetch('https://blog-backend-arthur-candeia.vercel.app/', {method: 'POST', headers: header, body, credentials: 'include'})
+  const result = await fetch('http://localhost:8080/', {method: 'POST', headers: header, body, credentials: 'include'})
   const data = await result.json()
 
   if (Object.prototype.hasOwnProperty.call(data, 'msg')) {
@@ -18,7 +18,7 @@ export async function loaderAllInfos() {
   }
 
   saveDataInLS(data)
-  return {posts: data.posts.reverse(), links: data.links}
+  return {posts: data.posts, links: data.links}
 }
 
 function saveDataInLS(data: DataTypes) {
