@@ -22,6 +22,7 @@
 .linksBox {
   grid-area: links;
   overflow-y: scroll;
+  height: calc(2* 26vh);
   word-wrap: break-word;
   padding: 10px 15px;
   background-color: $lightBlue;
@@ -33,7 +34,7 @@
   }
 
   .links {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 
     p {
       font-weight: 500;

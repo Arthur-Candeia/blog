@@ -24,6 +24,7 @@
   }
 
   #blogMain {
+    grid-template-rows: 1fr 1fr 1fr 50px 1fr;
     grid-template-areas: 
     "post1 post1 post1 post1 post1"
     "post2 post2 post2 post2 post2"

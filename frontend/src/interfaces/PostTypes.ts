@@ -3,5 +3,6 @@ export default interface PostTypes {
   content: string,
   src: string,
   date: string,
-  likes?: number
+  likes?: number,
+  _id?: string
 }

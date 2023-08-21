@@ -10,13 +10,14 @@ export async function loaderAllInfos() {
     password: `${import.meta.env.VITE_INICIAR}`
   })
   
-  const result = await fetch('http://localhost:8080/', {method: 'POST', headers: header, body, credentials: 'include'})
+  const result = await fetch('https://blog-backend-arthur-candeia.vercel.app/', {method: 'POST', headers: header, body, credentials: 'include'})
   const data = await result.json()
 
   if (Object.prototype.hasOwnProperty.call(data, 'msg')) {
     return getDataFromLS()
   }
 
+  sessionStorage.totalLikes = 0 //Feito para ban em caso de muitas requisições
   saveDataInLS(data)
   return {posts: data.posts, links: data.links}
 }
@@ -28,6 +29,7 @@ function saveDataInLS(data: DataTypes) {
     localStorage[`content${index}`] = JSON.stringify(element.content)
     localStorage[`src${index}`] = JSON.stringify(element.src)
     localStorage[`likes${index}`] = JSON.stringify(element.likes)
+    localStorage[`id${index}`] = JSON.stringify(element._id)
   })
 
   localStorage.qtdPosts = data.posts.length - 1
@@ -42,8 +44,10 @@ function getDataFromLS() {
     const date = JSON.parse(localStorage[`date${i}`])
     const content = JSON.parse(localStorage[`content${i}`])
     const src = JSON.parse(localStorage[`src${i}`])
+    const likes = JSON.parse(localStorage[`likes${i}`])
+    const _id = JSON.parse(localStorage[`id${i}`])
 
-    posts = [...posts, {title, date, content, src}]
+    posts = [...posts, {title, date, content, src, likes, _id}]
   }
 
   return {posts, links: JSON.parse(localStorage.links)}
