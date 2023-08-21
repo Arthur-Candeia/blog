@@ -1,7 +1,7 @@
 @import '../../styles/colors.scss';
 
 #singlePost {
-  background-color: red;
+  height: 100%;
 }
 
 .singlePostImg {
@@ -15,24 +15,23 @@
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
+  padding: 10px 10%;
 }
 
 .singlePostTitle {
   font-size: 3.5rem;
-  padding: 10px 10px 0px;
 }
 
 .singlePostDate {
-  padding: 0px 10px 10px;
   margin-top: -10px;
 }
 
 .singlePostLikes {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 10px;
-  width: 20%;
-  background-color: blue;
+  min-width: 120px;
 
   button {
     cursor: pointer;
@@ -44,6 +43,12 @@
   p {
     display: inline-block;
     font-size: 1.7rem;
-    color: white;
   }
+}
+
+.singlePostContent {
+  width: 80vw;
+  margin: 10px auto 0px;
+  line-height: 2;
+  text-align: justify;
 }

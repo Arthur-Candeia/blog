@@ -13,11 +13,13 @@ export async function loaderAllInfos() {
   const result = await fetch('https://blog-backend-arthur-candeia.vercel.app/', {method: 'POST', headers: header, body, credentials: 'include'})
   const data = await result.json()
 
+  //Feito para ban em caso de muitas requisições
+  if (!sessionStorage.totalLikes) sessionStorage.totalLikes = 0 
+  
   if (Object.prototype.hasOwnProperty.call(data, 'msg')) {
     return getDataFromLS()
   }
-
-  sessionStorage.totalLikes = 0 //Feito para ban em caso de muitas requisições
+  
   saveDataInLS(data)
   return {posts: data.posts, links: data.links}
 }
@@ -32,7 +34,7 @@ function saveDataInLS(data: DataTypes) {
     localStorage[`id${index}`] = JSON.stringify(element._id)
   })
 
-  localStorage.qtdPosts = data.posts.length - 1
+  localStorage.qtdPosts = data.posts.length
   localStorage.links = JSON.stringify(data.links)
 }
 

@@ -28,7 +28,7 @@
       filter: blur(2px);
     }
 
-    a {
+    a.linkToPost {
       display: block;
     }
   }
@@ -49,13 +49,8 @@
     align-items: center;
     padding: 1px 10px;
 
-    h1 {
-      color: white;
-    }
-
     .date {
       padding: 0px;
-      color: white;
     }
   }
 
@@ -64,7 +59,7 @@
     color: $darkBlue;
   }
 
-  a {
+  a.linkToPost {
     display: none;
     position: absolute;
     left: 50%;

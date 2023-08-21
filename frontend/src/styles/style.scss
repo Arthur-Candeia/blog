@@ -11,3 +11,27 @@ main {
   width: 100%;
   height: 100%;
 }
+
+.mode-light {
+  background-color: white;
+
+  h1, p, a{
+    color: $darkBlue;
+  }
+
+  .allPosts:hover {
+    border: 2px solid black;
+  }
+}
+
+.mode-dark {
+  background-color: #111;
+
+  h1, p, a {
+    color: white;
+  }
+
+  .allPosts:hover {
+    border: 2px solid white;
+  }
+}

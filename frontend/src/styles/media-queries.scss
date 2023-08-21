@@ -50,7 +50,13 @@
     height: 35vh;
   }
 
-  
+  .singlePostTitle {
+    font-size: 2.5rem;
+  }
+
+  .singlePostInfos {
+    padding: 0px 20px;
+  }
 
   @keyframes allPosts {
     0% {

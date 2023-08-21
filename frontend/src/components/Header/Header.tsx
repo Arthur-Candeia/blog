@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Outlet, Link } from "react-router-dom";
 import { loaderAllInfos } from "../../loaders/loaders";
 import useAnimateLogo from '../../hooks/useAnimateLogo';
+import switchTheme from './switchTheme';
 import DataContext from '../../contexts/Data';
 import Shield from "../Shield/Shield";
 import DataTypes from '../../interfaces/DataTypes';
@@ -15,6 +16,7 @@ export default function Header() {
 
   useEffect(()=> {
     setIsLoading(true)
+    localStorage.isDark ? switchTheme(true) : ''
     loaderAllInfos().then((result) => 
     {
       setData(result)
@@ -33,6 +35,10 @@ export default function Header() {
             <nav>
               <Link to='/posts'>Posts</Link>
               <a href='https://github.com/Arthur-Candeia/blog' target='_blank' rel='external'>Repository</a>
+              <label className="switch">
+                <input type="checkbox" onChange={(ev) => switchTheme(ev.target.checked)} defaultChecked={localStorage.isDark ? true : false}/>
+                <span className="slider round"></span>
+              </label>
             </nav>
           </header>
           <Outlet></Outlet>
