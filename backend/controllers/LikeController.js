@@ -15,6 +15,7 @@ async function store(request, response) {
         case 'decrement':
           post.likes--
       }
+      
       await post.save()
     }, timeDelay)
     

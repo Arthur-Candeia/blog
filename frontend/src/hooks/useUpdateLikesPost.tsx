@@ -7,7 +7,7 @@ export function useUpdateLikesPost(post: PostTypes, id: string | undefined) {
   const [qtdLikes, setQtdLikes] = useState(JSON.parse(localStorage[`likes${id}`]))
   
   async function functionUpdateLikesPost() {
-    if ((JSON.parse(sessionStorage.totalLikes)) > 10) {
+    if ((JSON.parse(sessionStorage.totalLikes)) > 9) {
       toast.error('Você fez muitas requisições! Aguarde...')
       return 
     }
