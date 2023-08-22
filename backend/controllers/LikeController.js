@@ -16,9 +16,9 @@ async function store(request, response) {
           post.likes--
       }
       await post.save()
-      response.status(200).json({likes: post.likes})
     }, timeDelay)
     
+    response.status(200).json({likes: 'Ação Realizadas'})
   } catch (err) {
     response.status(401).json({msg: err?.message})
   }
