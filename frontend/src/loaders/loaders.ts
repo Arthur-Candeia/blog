@@ -9,7 +9,7 @@ export async function loaderAllInfos() {
     user: `${import.meta.env.VITE_ENTRADA}`,
     password: `${import.meta.env.VITE_INICIAR}`
   })
-  
+
   const result = await fetch('https://blog-backend-arthur-candeia.vercel.app/', {method: 'POST', headers: header, body, credentials: 'include'})
   const data = await result.json()
 
