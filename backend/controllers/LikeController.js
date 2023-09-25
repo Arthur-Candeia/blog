@@ -2,7 +2,6 @@ const Post = require('../db/models/model')
 
 async function store(request, response) {
   try {
-    const timeDelay = Math.floor(Math.random() * 60000)
     setTimeout(async () => {
       const {id} = request.body
       const {action} = request.params
@@ -17,7 +16,7 @@ async function store(request, response) {
       }
       
       await post.save()
-    }, timeDelay)
+    }, 6000)
     
     response.status(200).json({likes: 'Ação Realizadas'})
   } catch (err) {
