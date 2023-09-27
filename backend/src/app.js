@@ -4,10 +4,13 @@ const app = express()
 const router = require('./router')
 const cors = require('cors')
 const cookieParser = require('cookie-parser')
+const rateLimit = require('express-rate-limit')
 require('../db/db.js')
 
 const allowedOrigins = ['https://blog-arthur-candeia.vercel.app', 'https://blog-admin-arthur-candeia.vercel.app']
+const limiter = rateLimit({windowMs: 30 * 60 * 1000, max: 50, message: 'Too many requests!'})
 
+app.use(limiter)
 app.use(express.json())
 
 app.use((request, response, next) => {
