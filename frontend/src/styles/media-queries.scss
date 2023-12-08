@@ -21,6 +21,10 @@
     #logo {
       font-size: 1.5em;
     }
+
+    nav {
+      gap: 10px;
+    }
   }
 
   #blogMain {
@@ -70,6 +74,16 @@
     100% {
       text-align: center;
       width: 100%;
+    }
+  }
+}
+
+@media screen and (max-width: 315px) {
+  .fixedHeader {
+    nav {
+      a {
+        font-size: 0.8em;
+      }
     }
   }
 }
