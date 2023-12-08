@@ -2,9 +2,7 @@ const Post = require('../db/models/model')
 
 async function store(request, response) {
   try {
-    setTimeout(async () => {
-      const {id} = request.body
-      const {action} = request.params
+      const {id, action} = request.params
       const post = await Post.findById(id, 'likes')
 
       switch (action) {
@@ -16,7 +14,6 @@ async function store(request, response) {
       }
       
       await post.save()
-    }, 6000)
     
     response.status(200).json({likes: 'Ação Realizadas'})
   } catch (err) {

@@ -11,15 +11,6 @@ export function useUpdateLikesPost(post: PostTypes, id: string | undefined) {
       toast.error('Você fez muitas requisições! Aguarde...')
       return 
     }
-    
-    const header = new Headers({
-      'Content-Type': 'application/json'
-    })
-    const body = JSON.stringify({
-      user: `${import.meta.env.VITE_ENTRADA}`,
-      password: `${import.meta.env.VITE_INICIAR}`,
-      id: post._id
-    })
 
     const incrementOrDecrement = isLiked ? 'decrement' : 'increment'
     const valueToAddOrRemove = isLiked ? -1 : 1
@@ -31,7 +22,7 @@ export function useUpdateLikesPost(post: PostTypes, id: string | undefined) {
     setIsLiked(!isLiked)
     setQtdLikes((current: number) => current += valueToAddOrRemove)
 
-    const result = await fetch(`https://blog-backend-arthur-candeia.vercel.app/likes/${incrementOrDecrement}`, {method: 'POST', headers: header, body})
+    const result = await fetch(`https://blog-backend-arthur-candeia.vercel.app/likes/${post._id}/${incrementOrDecrement}`)
     console.log(await result.json())
   }
 

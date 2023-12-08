@@ -3,7 +3,6 @@ const express = require('express')
 const app = express()
 const router = require('./router')
 const cors = require('cors')
-const cookieParser = require('cookie-parser')
 const rateLimit = require('express-rate-limit')
 require('../db/db.js')
 
@@ -12,15 +11,6 @@ const limiter = rateLimit({windowMs: 30 * 60 * 1000, max: 50, message: 'Too many
 
 app.use(limiter)
 app.use(express.json())
-
-app.use((request, response, next) => {
-  const allowedOrigins = 
-  response.header("Access-Control-Allow-Origin", 'https://blog-arthur-candeia.vercel.app');
-  response.header("Access-Control-Allow-Methods", 'GET,PUT,POST,DELETE');
-  next();
-});
-
-app.use(cookieParser())
 
 app.use(cors({
   origin: function(origin, callback) {

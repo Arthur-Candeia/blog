@@ -25,7 +25,7 @@ export default function SinglePost() {
           <p>{qtdLikes}</p>
         </div>
       </aside>
-      <p className="singlePostContent">{post.content} Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta esse quia optio nesciunt maiores atque dignissimos adipisci impedit molestiae enim temporibus libero sed, ea recusandae consectetur illum soluta magnam vero velit aspernatur? Alias reiciendis dolores eaque magni culpa vero nam eius, consequatur atque repellat officia sint omnis quae placeat ducimus iure quis excepturi quidem fugiat magnam architecto totam dolorum? Sed quasi quisquam perferendis debitis exercitationem, est ducimus similique non recusandae tempora fugiat nesciunt quas autem voluptatibus suscipit mollitia labore voluptatem corrupti voluptates iure iusto laudantium delectus soluta distinctio. Architecto, dolor. Tempora itaque eligendi est voluptatem minus voluptas earum necessitatibus ipsa dicta quod eos molestias ut doloremque enim blanditiis, porro praesentium iure quis. Minus nisi, ducimus assumenda ea adipisci, voluptates iusto dolorum animi provident quae sed, a nemo atque fugit laboriosam corrupti ab vel id exercitationem consequatur beatae. Nobis enim, animi, optio cum suscipit beatae, nemo vero perferendis molestias consectetur totam? lore</p>
+      <p className="singlePostContent">{post.content}</p>
       <ToastContainer 
         position="bottom-right"
         autoClose={5000}

@@ -7,12 +7,12 @@ const PostController = require('../controllers/PostController.js')
 const LinkController = require('../controllers/LinkController')
 const LikeController = require('../controllers/LikeController')
 
-router.post('/', middlewareLogin, PostController.index)
+router.get('/', PostController.index)
 
 router.post('/newpost', upload.single('file'), middlewareLogin, PostController.store)
 
 router.post('/links', middlewareLogin, LinkController.store)
 
-router.post('/likes/:action', middlewareLogin, LikeController.store)
+router.get('/likes/:id/:action', LikeController.store)
 
 module.exports = router
