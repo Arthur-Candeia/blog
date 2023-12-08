@@ -1,5 +1,5 @@
-const Post = require('../db/models/model')
-const Link = require('../db/models/linksModel')
+const Post = require('../../db/models/model')
+const Link = require('../../db/models/linksModel')
 const fs = require('fs')
 require('dotenv').config()
 

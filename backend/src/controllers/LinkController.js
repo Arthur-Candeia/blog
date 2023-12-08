@@ -1,4 +1,4 @@
-const Link = require('../db/models/linksModel')
+const Link = require('../../db/models/linksModel')
 
 async function store(request, response) {
   try {
