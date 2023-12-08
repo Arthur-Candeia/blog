@@ -16,7 +16,6 @@ export function useUpdateLikesPost(post: PostTypes, id: string | undefined) {
     const valueToAddOrRemove = isLiked ? -1 : 1
     
     isLiked ? localStorage.removeItem(`isLike${id}`) : localStorage[`isLike${id}`] = true
-    localStorage[`likes${id}`] = JSON.stringify((JSON.parse(localStorage[`likes${id}`]) + valueToAddOrRemove))
     sessionStorage.totalLikes = JSON.stringify((JSON.parse(sessionStorage.totalLikes) + 1))
 
     setIsLiked(!isLiked)
