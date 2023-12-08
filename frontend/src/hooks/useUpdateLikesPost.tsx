@@ -19,7 +19,7 @@ export function useUpdateLikesPost(post: PostTypes, id: string | undefined) {
     sessionStorage.totalLikes = JSON.stringify((JSON.parse(sessionStorage.totalLikes) + 1))
 
     setIsLiked(!isLiked)
-    setQtdLikes((current: number) => current += valueToAddOrRemove)
+    setQtdLikes((current: number | undefined) => current ? current += valueToAddOrRemove : current)
 
     const result = await fetch(`https://blog-backend-arthur-candeia.vercel.app/likes/${post._id}/${incrementOrDecrement}`)
     console.log(await result.json())
