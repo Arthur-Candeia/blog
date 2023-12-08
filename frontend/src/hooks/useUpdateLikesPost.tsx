@@ -4,7 +4,7 @@ import PostTypes from '../interfaces/PostTypes';
 
 export function useUpdateLikesPost(post: PostTypes, id: string | undefined) {
   const [isLiked, setIsLiked] = useState(localStorage[`isLike${id}`])
-  const [qtdLikes, setQtdLikes] = useState(JSON.parse(localStorage[`likes${id}`]))
+  const [qtdLikes, setQtdLikes] = useState(post?.likes)
   
   async function functionUpdateLikesPost() {
     if ((JSON.parse(sessionStorage.totalLikes)) > 9) {
